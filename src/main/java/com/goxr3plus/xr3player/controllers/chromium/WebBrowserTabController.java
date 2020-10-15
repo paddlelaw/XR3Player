@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.teamdev.jxbrowser.browser.Browser;
 import org.apache.commons.validator.routines.UrlValidator;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.javafx.StackedFontIcon;
