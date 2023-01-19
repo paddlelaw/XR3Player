@@ -1,19 +1,18 @@
-### [![AlexKent](https://user-images.githubusercontent.com/20374208/75432997-f5422100-5957-11ea-87a2-164eb98d83ef.png)](https://www.minepi.com/AlexKent) Support me joining PI Network app with invitation code [AlexKent](https://www.minepi.com/AlexKent) [![AlexKent](https://user-images.githubusercontent.com/20374208/75432997-f5422100-5957-11ea-87a2-164eb98d83ef.png)](https://www.minepi.com/AlexKent) 
+<p align="center" style="font-size: 40px" > XR3Player is running with Java 19 as minimum JDK </p> 
 
-## I am in search for developers to keep on where i left XR3Player :) because i don't have time 
----
+--- 
 <h3 align="center" > XR3Player ( <a href="https://xr3player.netlify.com/" target="_blank">Download</a>  )</h3>
 <p align="center">
 <img src="https://cloud.githubusercontent.com/assets/20374208/26214265/6b605cae-3c04-11e7-9c14-2cd59e10dd03.png">
-</p>
-<p align="center"> 
-<sup>
-<b>The most advanced Java Media Player/Organizer you will ever find out there </b> 
-</sup>   
-</p> 
-
----
-
+</p>       
+<p align="center">                 
+<sup>        
+<b>The most advanced Java Media Player/Organizer you will ever find out there </b>      
+</sup>                      
+</p>                                      
+                           
+---                 
+  
 [![Latest Version](https://img.shields.io/github/release/goxr3plus/XR3Player.svg?style=flat-square)](https://github.com/goxr3plus/XR3Player/releases)
 [![Join the chat at https://gitter.im/XR3Player/Lobby](https://badges.gitter.im/XR3Player/Lobby.svg)](https://gitter.im/XR3Player/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 <a href="https://sourceforge.net/projects/xr3player/files/latest/download" rel="nofollow"><img alt="Download XR3Player" src="https://img.shields.io/sourceforge/dt/xr3player.svg"></a>
@@ -39,20 +38,20 @@ Check the section **HOW TO RUN PROJECT** because it needs just  20 seconds of ad
 
 | DJ UI | Chromium Web Browser 
 |:-:|:-:|
-| ![First](https://user-images.githubusercontent.com/20374208/48313813-34fdc180-e5ca-11e8-9da7-c6148dc0cbe5.png) | ![Sec](https://goxr3plus.github.io/xr3player.io/img/xr3player/web_browser.jpg) |
+| ![First](https://user-images.githubusercontent.com/20374208/48313813-34fdc180-e5ca-11e8-9da7-c6148dc0cbe5.png) | ![web_browser](https://user-images.githubusercontent.com/20374208/169485711-785cfd5f-c68c-4354-a8ae-6479f329ecdc.jpg) |
 
 | Multiple Users | Advanced UI 
 |:-:|:-:|
-| ![First](https://goxr3plus.github.io/xr3player.io/img/xr3player/login_mode.jpg) | ![Sec](https://goxr3plus.github.io/xr3player.io/img/xr3player/main_mode.jpg) |
+| ![login_mode](https://user-images.githubusercontent.com/20374208/169485737-11362c9f-57d9-4f57-ac58-2dfa1eac6ed6.jpg) | ![main_mode](https://user-images.githubusercontent.com/20374208/169485764-6809b0aa-d5ef-4099-99d4-31276e0fb9e0.jpg) |
 
 -------------------------------------------------------------------------------------
 
 
 # HOW TO RUN PROJECT 
 
-To build XR3Player, you will need:
+To build XR3Player, you will need: 
 
-* [JDK 12.0.2]
+* [JDK 19]
 * [Maven](http://maven.apache.org/) - Version 3.6.0++
 
 Open IntelliJ and fork the project (https://github.com/goxr3plus/XR3Player).
@@ -81,9 +80,7 @@ Ready to go :)
    -  //TODO JVisualizations ( Advanced Java Audio Visualizations Library )
    -  //TODO  [JAmplitudeVisuals](https://github.com/goxr3plus/Java-Audio-Wave-Spectrum-API) ( Advanced Java Library for representing Audio Amplitude Visualizations ) 
   
-  
-    
-  
+   
 
 ## Features
 - **Done ✔️**
@@ -147,7 +144,7 @@ Ready to go :)
   </p>
 </details>
 
-## About JxBrowser
+## About JxBrowser  -- JX BROWSER IS BEING REMOVED
 
 >XR3Player uses JxBrowser http://www.teamdev.com/jxbrowser, which is a proprietary software, owned by TeamDev Ltd. The use of JxBrowser >is governed by JxBrowser Product Licence Agreement http://www.teamdev.com/jxbrowser-licence-agreement. 
 >You may not use JxBrowser separately from XR3Player project without explicit permission of TeamDev Ltd.
@@ -156,7 +153,7 @@ Ready to go :)
 ## Specs / Open-source libraries:
 
 
-- [**Ikonli Font Icons packs**](https://aalmiray.github.io/ikonli) Ikonli provides icon packs that can be used in Java applications. Currently Swing and JavaFX UI toolkits are supported.
+- [**Ikonli Font Icons packs**](https://github.com/kordamp/ikonli) Ikonli provides icon packs that can be used in Java applications. Currently Swing and JavaFX UI toolkits are supported.
 - [**ControlsFX**](http://fxexperience.com/controlsfx/features/) UI controls and useful API for JavaFX 8.0 and beyond .
 - [**JFoenix**](https://github.com/jfoenixadmin/JFoenix)  JavaFX Material Design Library .
 - [**RichTextFX**](https://github.com/FXMisc/RichTextFX) RichTextFX provides a memory-efficient text area for JavaFX that allows the developer to style ranges of text, display custom objects in-line (no more HTMLEditor), and override the default behavior only where necessary without overriding any other part of the behavior.
@@ -174,7 +171,7 @@ Ready to go :)
 - [**JavaFX-Web-Browser**](https://github.com/goxr3plus/JavaFX-Web-Browser) Embeddable or Standalone JavaFX Web Browser.
 - [**Mp3agic**](https://github.com/mpatric/mp3agic) A java library for reading mp3 files and reading / manipulating the ID3 tags (ID3v1 and ID3v2.2 through ID3v2.4).
 - [**JAVE2**](https://github.com/a-schild/jave2) The JAVE (Java Audio Video Encoder) library is Java wrapper on the ffmpeg project
-
+ 
 
 [![Build Status](https://travis-ci.org/goxr3plus/XR3Player.svg?branch=master)](https://travis-ci.org/goxr3plus/XR3Player)
-[![HitCount](http://hits.dwyl.io/goxr3plus/xr3player.svg)](http://hits.dwyl.io/goxr3plus/xr3player) 
+
