@@ -123,11 +123,12 @@ public class MainLoader {
         // WelcomeScreen
         welcomeScreen.getVersionLabel().setText(window.getTitle());
         Optional.ofNullable(properties.getProperty("Show-Welcome-Screen")).ifPresentOrElse(value -> {
-            welcomeScreen.getShowOnStartUp().setSelected(Boolean.valueOf(value));
-            if (welcomeScreen.getShowOnStartUp().isSelected())
+            welcomeScreen.getShowOnStartUp().setSelected(Boolean.parseBoolean(value));
+            if (welcomeScreen.getShowOnStartUp().isSelected()) {
                 welcomeScreen.showWelcomeScreen();
-            else
+            } else {
                 welcomeScreen.hideWelcomeScreen();
+            }
         }, () -> welcomeScreen.showWelcomeScreen());
 
         // Last Logged in user
@@ -352,9 +353,9 @@ public class MainLoader {
         final Thread browserThread = new Thread(() -> {
             try {
                 final Field e = bb.class.getDeclaredField("e");
-//                e.setAccessible(true);
+                e.setAccessible(true);
                 final Field f = bb.class.getDeclaredField("f");
-//                f.setAccessible(true);
+                f.setAccessible(true);
                 makeNonFinal(e);
                 makeNonFinal(f);
 //                final Field modifersField = Field.class.getDeclaredField("modifiers");

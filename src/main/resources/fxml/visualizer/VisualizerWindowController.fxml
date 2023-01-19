@@ -127,7 +127,7 @@
                 </JFXCheckBox>
                 <JFXButton fx:id="maxOrNormalize" contentDisplay="GRAPHIC_ONLY" focusTraversable="false"
                            maxHeight="-Infinity" minHeight="-Infinity" prefHeight="28.0" prefWidth="28.0"
-                           style="-fx-font-size: 10;" styleClass="jfx-button-green" text="+">
+                           style="-fx-font-size: 10;" styleClass="" text="+">
                     <font>
                         <Font size="8.0"/>
                     </font>

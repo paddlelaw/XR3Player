@@ -16,7 +16,7 @@ import com.goxr3plus.xr3player.utils.general.InfoTool;
 import com.goxr3plus.xr3player.utils.general.OSTool;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTabPane;
-import com.teamdev.jxbrowser.browser.Browser;
+import com.teamdev.jxbrowser.chromium.Browser;
 //import com.teamdev.jxbrowser.chromium.Browser;
 
 import javafx.application.Platform;

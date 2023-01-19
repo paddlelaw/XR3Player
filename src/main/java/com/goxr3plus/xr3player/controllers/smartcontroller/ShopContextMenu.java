@@ -220,76 +220,83 @@ public class ShopContextMenu extends ContextMenu {
 			// ---------------------SEARCH ON
 			// WEB--------------------------------------------
 			// Music Sites
-			if (source == soundCloud)
+			if (source == soundCloud) {
 				openWebSite("https://soundcloud.com/search?q=" + URLEncoder.encode(mediaTitle, encoding));
-			else if (source == jamendo)
+			} else if (source == jamendo) {
 				openWebSite("https://www.jamendo.com/search?q=" + URLEncoder.encode(mediaTitle, encoding));
-			else if (source == tuneIn)
+			} else if (source == tuneIn) {
 				openWebSite("http://tunein.com/search/?query=" + URLEncoder.encode(mediaTitle, encoding));
+			}
 			// Amazon
-			else if (source == amazonUS)
+			else if (source == amazonUS) {
 				openWebSite("https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Dpopular&field-keywords="
 						+ URLEncoder.encode(mediaTitle, encoding));
-			else if (source == amazonUK)
+			} else if (source == amazonUK) {
 				openWebSite("https://www.amazon.co.uk/s/ref=nb_sb_noss?url=search-alias%3Dpopular&field-keywords="
 						+ URLEncoder.encode(mediaTitle, encoding));
-			else if (source == amazonCanada)
+			} else if (source == amazonCanada) {
 				openWebSite("https://www.amazon.ca/s/ref=nb_sb_noss?url=search-alias%3Dpopular&field-keywords="
 						+ URLEncoder.encode(mediaTitle, encoding));
-			else if (source == amazonGermany)
+			} else if (source == amazonGermany) {
 				openWebSite("https://www.amazon.de/s/ref=nb_sb_noss?url=search-alias%3Dpopular&field-keywords="
 						+ URLEncoder.encode(mediaTitle, encoding));
-			else if (source == amazonFrance)
+			} else if (source == amazonFrance) {
 				openWebSite("https://www.amazon.fr/s/ref=nb_sb_noss?url=search-alias%3Dpopular&field-keywords="
 						+ URLEncoder.encode(mediaTitle, encoding));
-			else if (source == amazonSpain)
+			} else if (source == amazonSpain) {
 				openWebSite("https://www.amazon.es/s/ref=nb_sb_noss?url=search-alias%3Dpopular&field-keywords="
 						+ URLEncoder.encode(mediaTitle, encoding));
-			else if (source == amazonItaly)
+			} else if (source == amazonItaly) {
 				openWebSite("https://www.amazon.it/s/ref=nb_sb_noss?url=search-alias%3Dpopular&field-keywords="
 						+ URLEncoder.encode(mediaTitle, encoding));
-			else if (source == amazonJapan)
+			} else if (source == amazonJapan) {
 				openWebSite("https://www.amazon.co.jp/s/ref=nb_sb_noss?url=search-alias%3Dpopular&field-keywords="
 						+ URLEncoder.encode(mediaTitle, encoding));
-			else if (source == amazonChina)
+			} else if (source == amazonChina) {
 				openWebSite("https://www.amazon.cn/s/ref=nb_sb_noss?url=search-alias%3Dpopular&field-keywords="
 						+ URLEncoder.encode(mediaTitle, encoding));
+			}
 
 			// Music Sites
-			else if (source == hDTracks)
+			else if (source == hDTracks) {
 				openWebSite(
 						"http://www.hdtracks.com/catalogsearch/result/?q=" + URLEncoder.encode(mediaTitle, encoding));
-			else if (source == cDUniverse)
+			} else if (source == cDUniverse) {
 				openWebSite("http://www.cduniverse.com/sresult.asp?HT_Search=ALL&HT_Search_Info="
 						+ URLEncoder.encode(mediaTitle, encoding) + "&style=all");
+			}
 
 			// Radios
-			else if (source == lastfm)
+			else if (source == lastfm) {
 				openWebSite("https://www.last.fm/search?q=" + URLEncoder.encode(mediaTitle, encoding));
-			else if (source == librefm)
+			} else if (source == librefm) {
 				openWebSite("https://libre.fm/search.php?search_term=" + URLEncoder.encode(mediaTitle, encoding)
 						+ "&search_type=artist");
+			}
 
 			// Video WebSites
-			else if (source == youtube)
+			else if (source == youtube) {
 				openWebSite("https://www.youtube.com/results?search_query=" + URLEncoder.encode(mediaTitle, encoding));
-			else if (source == vimeo)
+			} else if (source == vimeo) {
 				openWebSite("https://vimeo.com/search?q=" + URLEncoder.encode(mediaTitle, encoding));
+			}
 
 			// Search-Engines
-			else if (source == google)
+			else if (source == google) {
 				openWebSite("https://www.google.com/search?q=" + URLEncoder.encode(mediaTitle, encoding));
-			else if (source == duckduckgo)
+			} else if (source == duckduckgo) {
 				openWebSite("https://duckduckgo.com/?q=" + URLEncoder.encode(mediaTitle, encoding));
-			else if (source == bing)
+			} else if (source == bing) {
 				openWebSite("http://www.bing.com/search?q=" + URLEncoder.encode(mediaTitle, encoding));
-			else if (source == yahoo)
+			} else if (source == yahoo) {
 				openWebSite("https://search.yahoo.com/search?p=" + URLEncoder.encode(mediaTitle, encoding));
+			}
 
 			// Wikipedia
-			else if (source == wikipedia)
+			else if (source == wikipedia) {
 				openWebSite("https://www.wikipedia.org/wiki/Special:Search?search="
 						+ URLEncoder.encode(mediaTitle, encoding));
+			}
 
 		} catch (UnsupportedEncodingException ex) {
 			ex.printStackTrace();

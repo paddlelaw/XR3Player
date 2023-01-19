@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.goxr3plus</groupId>
 	<artifactId>XR3Player</artifactId>
+	<packaging>jar</packaging>
 	<version>3.129</version>
 
 
@@ -13,17 +12,15 @@
 	<description>Dominant Future Generation JavaFX Media Player</description>
 	<url>https://github.com/goxr3plus/XR3Player</url>
 
-	<!-- Output to jar format -->
-	<packaging>jar</packaging>
-
 	<properties>
 		<maven.compiler.source>12</maven.compiler.source>
 		<maven.compiler.target>12</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<ikonli.version>11.3.4</ikonli.version>
+		<ikonli.version>11.5.0</ikonli.version>
 		<javafx.version>12.0.2</javafx.version>
 		<junit.jupiter.version>5.4.2</junit.jupiter.version>
 		<jave.version>2.6.0</jave.version>
+		<jx.version>6.23.1</jx.version>
 	</properties>
 
 	<build>
@@ -35,7 +32,26 @@
 			</resource>
 		</resources>
 		<plugins>
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>3.0.0-M3</version>
+				<executions>
+					<execution>
+						<id>enforce-maven</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireMavenVersion>
+									<version>3.0.5</version>
+								</requireMavenVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<!-- Maven Compiler Plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -105,28 +121,61 @@
 				</configuration>
 			</plugin>
 
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-antrun-plugin</artifactId>-->
+<!--				<version>1.8</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<id>execution1</id>-->
+<!--						<phase>test</phase>-->
+<!--						<goals>-->
+<!--							<goal>run</goal>-->
+<!--						</goals>-->
+<!--						<configuration>-->
+<!--							<target>-->
+<!--								<copy file="${basedir}/lib/jxbrowser-license.jar" tofile="${basedir}/target/lib/jxbrowser-license.jar"/>-->
+<!--							</target>-->
+<!--						</configuration>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
 			<!-- Copy Assemply dependency -->
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>3.1.1</version>
-				<configuration>
-					<descriptors>
-						<descriptor>src/assembly/assembly.xml</descriptor>
-					</descriptors>
-					<finalName>XR3Player Update ${project.version}</finalName>
-					<appendAssemblyId>false</appendAssemblyId>
-				</configuration>
-				<executions>
-					<execution>
-						<id>create-archive</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
+<!--			<plugin>-->
+<!--				<artifactId>maven-assembly-plugin</artifactId>-->
+<!--				<version>3.1.1</version>-->
+<!--				<configuration>-->
+<!--					<descriptors>-->
+<!--						<descriptor>src/assembly/assembly.xml</descriptor>-->
+<!--					</descriptors>-->
+<!--					<finalName>XR3Player Update ${project.version}</finalName>-->
+<!--					<appendAssemblyId>false</appendAssemblyId>-->
+<!--				</configuration>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<id>create-archive</id>-->
+<!--						<phase>package</phase>-->
+<!--						<goals>-->
+<!--							<goal>single</goal>-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-dependency-plugin</artifactId>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<phase>package</phase>-->
+<!--						<goals>-->
+<!--							<goal>copy-dependencies</goal>-->
+<!--						</goals>-->
+<!--						<configuration>-->
+<!--							<outputDirectory>${project.build.directory}/lib</outputDirectory>-->
+<!--						</configuration>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
 		</plugins>
 	</build>
 
@@ -146,31 +195,49 @@
 	</repositories>
 
 	<!-- Dependencies -->
-
 	<dependencies>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.12.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.12.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.12.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.4.0-b180830.0359</version>
+		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.openjfx</groupId>-->
+<!--			<artifactId>javafx-controls</artifactId>-->
+<!--			<version>${javafx.version}</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.openjfx</groupId>-->
+<!--			<artifactId>javafx-fxml</artifactId>-->
+<!--			<version>${javafx.version}</version>-->
+<!--		</dependency>-->
 
-		<dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-controls</artifactId>
-			<version>${javafx.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-fxml</artifactId>
-			<version>${javafx.version}</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.openjfx</groupId>-->
+<!--			<artifactId>javafx-media</artifactId>-->
+<!--			<version>${javafx.version}</version>-->
+<!--		</dependency>-->
 
-		<dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-media</artifactId>
-			<version>${javafx.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-swing</artifactId>
-			<version>${javafx.version}</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.openjfx</groupId>-->
+<!--			<artifactId>javafx-swing</artifactId>-->
+<!--			<version>${javafx.version}</version>-->
+<!--		</dependency>-->
 
 
 		<!-- ikonli -->
@@ -220,15 +287,26 @@
 		<!-- CHROMIUM BROWSER -->
 		<dependency>
 			<groupId>com.teamdev.jxbrowser</groupId>
-			<artifactId>jxbrowser-win64</artifactId>
+			<artifactId>jxbrowser-cross-platform</artifactId>
 			<version>6.23.1</version>
+			<type>pom</type>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.cef</groupId>-->
+<!--			<artifactId>java-cef</artifactId>-->
+<!--			<version>1.4</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.cef</groupId>-->
+<!--			<artifactId>java-cef-tests</artifactId>-->
+<!--			<version>1.4</version>-->
+<!--		</dependency>-->
 
 		<!-- JAVAFX GRAPHICS LIBRARIES -->
 		<dependency>
 			<groupId>org.controlsfx</groupId>
 			<artifactId>controlsfx</artifactId>
-			<version>11.0.0</version>
+			<version>11.0.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.jfoenix</groupId>
@@ -303,17 +381,18 @@
 			<artifactId>mp3agic</artifactId>
 			<version>0.9.1</version>
 		</dependency>
-		<dependency>
-			<groupId>com.github.goxr3plus</groupId>
-			<artifactId>jaudiotagger</artifactId>
-			<version>2.2.7</version>
-		</dependency>
+
+<!--		<dependency>-->
+<!--			<groupId>com.github.goxr3plus</groupId>-->
+<!--			<artifactId>jaudiotagger</artifactId>-->
+<!--			<version>2.2.6</version>-->
+<!--		</dependency>-->
 
 		<!-- AUDIO SUPPORT -->
 		<dependency>
 			<groupId>com.github.goxr3plus</groupId>
 			<artifactId>java-stream-player</artifactId>
-			<version>9.0.4</version>
+			<version>10.0.0</version>
 		</dependency>
 
 		<!-- FX-BorderlessScene -->

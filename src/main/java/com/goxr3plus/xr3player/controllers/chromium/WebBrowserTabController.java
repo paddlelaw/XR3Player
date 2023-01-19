@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.teamdev.jxbrowser.browser.Browser;
+import com.teamdev.jxbrowser.chromium.Browser;
 import org.apache.commons.validator.routines.UrlValidator;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.javafx.StackedFontIcon;
@@ -211,8 +211,9 @@ public class WebBrowserTabController extends StackPane {
 
 				// Check for PopUps
 				System.out.println("Browser URL: " + browser_url);
-				if (browser_url.contains("fmovies.to"))
+				if (browser_url.contains("fmovies.to")) {
 					return;
+				}
 
 				// Show the Window
 				Platform.runLater(() -> {
@@ -480,11 +481,13 @@ public class WebBrowserTabController extends StackPane {
 			backwardButton.setOnAction(a -> goBack());
 			backwardButton.setOnMouseReleased(m -> {
 				if (m.getButton() == MouseButton.MIDDLE) // Create and add it next to this tab
+				{
 					webBrowserController.getTabPane().getTabs().add(
 							webBrowserController.getTabPane().getTabs().indexOf(tab) + 1,
 							webBrowserController.createNewTab(browser
 									.getNavigationEntryAtIndex(browser.getCurrentNavigationEntryIndex() - 1).getURL())
 									.getTab());
+				}
 			});
 
 			// forwardButton
@@ -492,11 +495,13 @@ public class WebBrowserTabController extends StackPane {
 			forwardButton.setOnAction(a -> goForward());
 			forwardButton.setOnMouseReleased(m -> {
 				if (m.getButton() == MouseButton.MIDDLE) // Create and add it next to this tab
+				{
 					webBrowserController.getTabPane().getTabs().add(
 							webBrowserController.getTabPane().getTabs().indexOf(tab) + 1,
 							webBrowserController.createNewTab(browser
 									.getNavigationEntryAtIndex(browser.getCurrentNavigationEntryIndex() + 1).getURL())
 									.getTab());
+				}
 			});
 
 			// homeButton
@@ -582,7 +587,7 @@ public class WebBrowserTabController extends StackPane {
 		case "yahoo":
 			return "https://search.yahoo.com";
 		default: // then google
-			return "https://www.google.com";
+			return "https://www.bing.com";
 		}
 	}
 
@@ -694,7 +699,7 @@ public class WebBrowserTabController extends StackPane {
 
 		// Check for internet connection
 		Thread thread = new Thread(() -> {
-			boolean hasInternet = NetworkingTool.isReachableByPing("www.google.com");
+			boolean hasInternet = NetworkingTool.isReachableByPing("www.bing.com");
 			Platform.runLater(() -> {
 
 				// Visibility of error pane

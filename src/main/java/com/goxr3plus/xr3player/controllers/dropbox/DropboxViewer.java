@@ -812,7 +812,7 @@ public class DropboxViewer extends StackPane {
 
 		// Check for internet connection
 		final Thread thread = new Thread(() -> {
-			final boolean hasInternet = NetworkingTool.isReachableByPing("www.google.com");
+			final boolean hasInternet = NetworkingTool.isReachableByPing("www.bing.com");
 			Platform.runLater(() -> {
 				errorPane.setVisible(!hasInternet);
 				tryAgainIndicator.setVisible(false);

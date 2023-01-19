@@ -2,8 +2,8 @@ package com.goxr3plus.xr3player.xplayer.microphone;
 
 import javax.sound.sampled.AudioFileFormat;
 
-import com.darkprograms.speech.util.Complex;
-import com.darkprograms.speech.util.FFT;
+import com.goxr3plus.speech.util.Complex;
+import com.goxr3plus.speech.util.FFT;
 
 /********************************************************************************************
  * Microphone Analyzer class, detects pitch and volume while extending the
@@ -57,8 +57,9 @@ public class MicrophoneAnalyzer extends Microphone {
 	 */
 	private int calculateAudioVolume(int numOfBytes) {
 		byte[] data = getBytes(numOfBytes);
-		if (data == null)
+		if (data == null) {
 			return -1;
+		}
 		return calculateRMSLevel(data);
 	}
 
