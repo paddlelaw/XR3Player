@@ -9,8 +9,6 @@ import java.util.logging.Level;
 
 import com.goxr3plus.streamplayer.stream.ThreadFactoryWithNamePrefix;
 import com.goxr3plus.xr3player.application.Main;
-//import com.goxr3plus.xr3player.controllers.chromium.WebBrowserController;
-//import com.goxr3plus.xr3player.controllers.chromium.WebBrowserTabController;
 import com.goxr3plus.xr3player.chromium.WebBrowserController;
 import com.goxr3plus.xr3player.chromium.WebBrowserTabController;
 import com.goxr3plus.xr3player.controllers.general.TopBar.WindowMode;
@@ -94,12 +92,12 @@ public class ChromiumUpdaterService {
 					Main.sideBar.getDjModeStackedFont().getChildren().get(1).setVisible(!muted);
 
 					// Browser Mode
-					final boolean notMuted = webBrowserController.getTabPane().getTabs().stream().filter(tab -> {
+					final boolean notMuted = webBrowserController.getTabPane().getTabs().stream().anyMatch(tab -> {
 						final WebBrowserTabController tabController = (WebBrowserTabController) tab.getContent();
 
 						// Is audio not muted?
 						return !tabController.getBrowser().isAudioMuted();
-					}).findFirst().isPresent();
+					});
 					Main.sideBar.getBrowserStackedFont().getChildren().get(1).setVisible(notMuted);
 
 				}
