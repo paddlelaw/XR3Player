@@ -5,11 +5,14 @@ package com.goxr3plus.xr3player.services.chromium;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
 
 import com.goxr3plus.streamplayer.stream.ThreadFactoryWithNamePrefix;
 import com.goxr3plus.xr3player.application.Main;
 //import com.goxr3plus.xr3player.controllers.chromium.WebBrowserController;
 //import com.goxr3plus.xr3player.controllers.chromium.WebBrowserTabController;
+import com.goxr3plus.xr3player.chromium.WebBrowserController;
+import com.goxr3plus.xr3player.chromium.WebBrowserTabController;
 import com.goxr3plus.xr3player.controllers.general.TopBar.WindowMode;
 
 import javafx.application.Platform;
@@ -41,16 +44,16 @@ public class ChromiumUpdaterService {
 	/**
 	 * The ChromiumWebBrowser controller
 	 */
-//	private final WebBrowserController webBrowserController;
+	private final WebBrowserController webBrowserController;
 
 	/**
 	 * Constructor
 	 * 
 	 * @param webBrowserController
 	 */
-//	public ChromiumUpdaterService(final WebBrowserController webBrowserController) {
-//		this.webBrowserController = webBrowserController;
-//	}
+	public ChromiumUpdaterService(final WebBrowserController webBrowserController) {
+		this.webBrowserController = webBrowserController;
+	}
 
 	/**
 	 * Start the Thread.
@@ -72,10 +75,10 @@ public class ChromiumUpdaterService {
 
 					// DropboxAuthenticationBrowser
 					if (Main.dropBoxViewer.getAuthenticationBrowser().getWindow().isShowing()) {
-//						Main.dropBoxViewer.getAuthenticationBrowser().getLoadingIndicator()
-//								.setManaged(Main.dropBoxViewer.getAuthenticationBrowser().getBrowser().isLoading());
-//						Main.dropBoxViewer.getAuthenticationBrowser().getLoadingIndicator()
-//								.setVisible(Main.dropBoxViewer.getAuthenticationBrowser().getBrowser().isLoading());
+						Main.dropBoxViewer.getAuthenticationBrowser().getLoadingIndicator()
+								.setManaged(Main.dropBoxViewer.getAuthenticationBrowser().getBrowser().isLoading());
+						Main.dropBoxViewer.getAuthenticationBrowser().getLoadingIndicator()
+								.setVisible(Main.dropBoxViewer.getAuthenticationBrowser().getBrowser().isLoading());
 					}
 
 					// ----------------------------Check if volume is enabled
@@ -91,20 +94,20 @@ public class ChromiumUpdaterService {
 					Main.sideBar.getDjModeStackedFont().getChildren().get(1).setVisible(!muted);
 
 					// Browser Mode
-//					final boolean notMuted = webBrowserController.getTabPane().getTabs().stream().filter(tab -> {
-//						final WebBrowserTabController tabController = (WebBrowserTabController) tab.getContent();
-//
-//						// Is audio not muted?
-//						return !tabController.getBrowser().isAudioMuted();
-//					}).findFirst().isPresent();
-//					Main.sideBar.getBrowserStackedFont().getChildren().get(1).setVisible(notMuted);
+					final boolean notMuted = webBrowserController.getTabPane().getTabs().stream().filter(tab -> {
+						final WebBrowserTabController tabController = (WebBrowserTabController) tab.getContent();
+
+						// Is audio not muted?
+						return !tabController.getBrowser().isAudioMuted();
+					}).findFirst().isPresent();
+					Main.sideBar.getBrowserStackedFont().getChildren().get(1).setVisible(notMuted);
 
 				}
 
 			} catch (final Exception ex) {
-//				Main.logger.log(Level.INFO, "", ex);
+				Main.logger.log(Level.INFO, "", ex);
 			} finally {
-//				System.out.println(threadName + " exited !!!!");
+				System.out.println(threadName + " exited !!!!");
 				Platform.runLater(() -> threadStopped.set(true));
 			}
 		};
@@ -122,43 +125,43 @@ public class ChromiumUpdaterService {
 	 * Checks the Tabs if the are muted , unmuted etc
 	 */
 	public void checkTabsSound() {
-//		webBrowserController.getTabPane().getTabs().forEach(tab -> {
-//			final WebBrowserTabController tabController = (WebBrowserTabController) tab.getContent();
-//
-//			try {
-//
-//				// Is Audio Playing?
-//				if (tabController.getBrowser().isAudioPlaying()) {
-//					final int width = 32;
-//					final int height = 25;
-//					tabController.getAudioButton().setMinSize(width, height);
-//					tabController.getAudioButton().setPrefSize(width, height);
-//					tabController.getAudioButton().setMaxSize(width, height);
-//					tabController.getAudioButton().setVisible(true);
-//
-//					// Is Audio Muted or unmuted?
-//					if (tabController.getBrowser().isAudioMuted()) {
-//						tabController.mutedImage.setVisible(true);
-//						tabController.unmutedImage.setVisible(false);
-//					} else {
-//						tabController.mutedImage.setVisible(false);
-//						tabController.unmutedImage.setVisible(true);
-//					}
-//				} else {
-//					final int maxSize = 0;
-//					tabController.getAudioButton().setMinSize(maxSize, maxSize);
-//					tabController.getAudioButton().setPrefSize(maxSize, maxSize);
-//					tabController.getAudioButton().setMaxSize(maxSize, maxSize);
-//					tabController.getAudioButton().setVisible(false);
-//				}
-//
-//				// Site is Loading
-//				tabController.getProgressIndicatorStackPane().setManaged(tabController.getBrowser().isLoading());
-//				tabController.getProgressIndicatorStackPane().setVisible(tabController.getBrowser().isLoading());
-//			} catch (final Exception ex) {
-//				ex.printStackTrace();
-//			}
-//		});
+		webBrowserController.getTabPane().getTabs().forEach(tab -> {
+			final WebBrowserTabController tabController = (WebBrowserTabController) tab.getContent();
+
+			try {
+
+				// Is Audio Playing?
+				if (tabController.getBrowser().isAudioPlaying()) {
+					final int width = 32;
+					final int height = 25;
+					tabController.getAudioButton().setMinSize(width, height);
+					tabController.getAudioButton().setPrefSize(width, height);
+					tabController.getAudioButton().setMaxSize(width, height);
+					tabController.getAudioButton().setVisible(true);
+
+					// Is Audio Muted or unmuted?
+					if (tabController.getBrowser().isAudioMuted()) {
+						tabController.mutedImage.setVisible(true);
+						tabController.unmutedImage.setVisible(false);
+					} else {
+						tabController.mutedImage.setVisible(false);
+						tabController.unmutedImage.setVisible(true);
+					}
+				} else {
+					final int maxSize = 0;
+					tabController.getAudioButton().setMinSize(maxSize, maxSize);
+					tabController.getAudioButton().setPrefSize(maxSize, maxSize);
+					tabController.getAudioButton().setMaxSize(maxSize, maxSize);
+					tabController.getAudioButton().setVisible(false);
+				}
+
+				// Site is Loading
+				tabController.getProgressIndicatorStackPane().setManaged(tabController.getBrowser().isLoading());
+				tabController.getProgressIndicatorStackPane().setVisible(tabController.getBrowser().isLoading());
+			} catch (final Exception ex) {
+				ex.printStackTrace();
+			}
+		});
 	}
 
 }

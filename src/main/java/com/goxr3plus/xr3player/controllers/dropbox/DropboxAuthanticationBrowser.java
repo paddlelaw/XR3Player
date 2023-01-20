@@ -2,6 +2,9 @@ package com.goxr3plus.xr3player.controllers.dropbox;
 
 import java.io.IOException;
 
+import com.teamdev.jxbrowser.chromium.Browser;
+import com.teamdev.jxbrowser.chromium.events.FinishLoadingEvent;
+import com.teamdev.jxbrowser.chromium.events.LoadAdapter;
 import org.jsoup.Jsoup;
 
 import com.dropbox.core.DbxAppInfo;
@@ -9,10 +12,9 @@ import com.dropbox.core.DbxAuthFinish;
 import com.dropbox.core.DbxException;
 import com.dropbox.core.DbxRequestConfig;
 import com.dropbox.core.DbxWebAuth;
-//import com.teamdev.jxbrowser.chromium.Browser;
 //import com.teamdev.jxbrowser.chromium.events.FinishLoadingEvent;
 //import com.teamdev.jxbrowser.chromium.events.LoadAdapter;
-//import com.teamdev.jxbrowser.chromium.javafx.BrowserView;
+import com.teamdev.jxbrowser.chromium.javafx.BrowserView;
 
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -48,7 +50,7 @@ public class DropboxAuthanticationBrowser extends StackPane {
 
 	// ----------------------------------------------------------------
 
-//	private Browser browser;
+	private Browser browser;
 
 	/**
 	 * AccessToken Property
@@ -103,33 +105,33 @@ public class DropboxAuthanticationBrowser extends StackPane {
 	@FXML
 	private void initialize() {
 
-//		// Browser
-//		browser = new Browser();
-//
-//		borderPane.setCenter(new BrowserView(browser));
-//		browser.addLoadListener(new LoadAdapter() {
-//			/**
-//			 * [[SuppressWarningsSpartan]]
-//			 */
-//			@Override
-//			public void onFinishLoadingFrame(FinishLoadingEvent event) {
-//				if (event.isMainFrame()) {
-//					String currentURL = browser.getURL();
-//					if ("https://www.dropbox.com/1/oauth2/authorize_submit".equals(currentURL)) {
-//						String html = event.getBrowser().getHTML();
-//						new Thread(() -> {
-//							try {
-//								String code = Jsoup.parse(html).body().getElementById("auth-code")
-//										.getElementsByTag("input").first().attr("data-token");
-//								Platform.runLater(() -> produceAccessToken(code));
-//							} catch (Exception ex) {
-//								ex.printStackTrace();
-//							}
-//						}).start();
-//					}
-//				}
-//			}
-//		});
+		// Browser
+		browser = new Browser();
+
+		borderPane.setCenter(new com.teamdev.jxbrowser.chromium.javafx.BrowserView(browser));
+		browser.addLoadListener(new LoadAdapter() {
+			/**
+			 * [[SuppressWarningsSpartan]]
+			 */
+			@Override
+			public void onFinishLoadingFrame(FinishLoadingEvent event) {
+				if (event.isMainFrame()) {
+					String currentURL = browser.getURL();
+					if ("https://www.dropbox.com/1/oauth2/authorize_submit".equals(currentURL)) {
+						String html = event.getBrowser().getHTML();
+						new Thread(() -> {
+							try {
+								String code = Jsoup.parse(html).body().getElementById("auth-code")
+										.getElementsByTag("input").first().attr("data-token");
+								Platform.runLater(() -> produceAccessToken(code));
+							} catch (Exception ex) {
+								ex.printStackTrace();
+							}
+						}).start();
+					}
+				}
+			}
+		});
 
 	}
 
@@ -138,11 +140,11 @@ public class DropboxAuthanticationBrowser extends StackPane {
 	 */
 	public void showAuthenticationWindow() {
 
-//		browser.getCacheStorage().clearCache();
-//		browser.getCookieStorage().deleteAll();
-//
-//		// Load it
-//		browser.loadURL(getAuthonticationRequestURL());
+		browser.getCacheStorage().clearCache();
+		browser.getCookieStorage().deleteAll();
+
+		// Load it
+		browser.loadURL(getAuthonticationRequestURL());
 
 		// Show the Window
 		window.show();
@@ -213,8 +215,8 @@ public class DropboxAuthanticationBrowser extends StackPane {
 	/**
 	 * @return the browser
 	 */
-//	public Browser getBrowser() {
-//		return browser;
-//	}
+	public Browser getBrowser() {
+		return browser;
+	}
 
 }

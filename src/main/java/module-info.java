@@ -2,7 +2,7 @@ module XR3Player {
 
 
 	opens com.goxr3plus.xr3player.application to javafx.graphics;
-//	opens com.goxr3plus.xr3player.controllers.chromium to javafx.fxml;
+	opens com.goxr3plus.xr3player.chromium to javafx.fxml;
 	opens com.goxr3plus.xr3player.controllers.custom to javafx.fxml;
 	opens com.goxr3plus.xr3player.controllers.djmode to javafx.fxml;
 	opens com.goxr3plus.xr3player.controllers.dropbox to javafx.fxml;
@@ -42,7 +42,7 @@ module XR3Player {
 	requires javasysmon2;
 	requires jave.core;
 	requires jnativehook;
-//	requires jxbrowser;
+	requires jxbrowser;
 	requires mp3agic;
 	requires org.apache.commons.io;
 	requires org.controlsfx.controls;
@@ -54,5 +54,5 @@ module XR3Player {
 	requires org.fxmisc.richtext;
 	requires org.fxmisc.flowless;
 	requires org.json;
-//    requires XR3Capture;
+	//    requires XR3Capture;
 }

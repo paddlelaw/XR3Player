@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.Properties;
 
 import com.goxr3plus.fxborderlessscene.borderless.BorderlessScene;
-//import com.goxr3plus.xr3player.controllers.chromium.WebBrowserController;
+import com.goxr3plus.xr3player.chromium.WebBrowserController;
 import com.goxr3plus.xr3player.controllers.djmode.DJMode;
 import com.goxr3plus.xr3player.controllers.dropbox.DropboxDownloadsTableViewer;
 import com.goxr3plus.xr3player.controllers.dropbox.DropboxViewer;
@@ -372,7 +372,7 @@ public class MainLoader {
             Platform.runLater(() -> {
 
                 // Chromium Web Browser
-//                Main.webBrowser = new WebBrowserController();
+                Main.webBrowser = new WebBrowserController();
 
                 // Dropbox Viewer
                 Main.dropBoxViewer = new DropboxViewer();

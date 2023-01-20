@@ -4,7 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.goxr3plus.fxborderlessscene.borderless.BorderlessScene;
-//import com.goxr3plus.xr3player.controllers.chromium.WebBrowserController;
+import com.goxr3plus.xr3player.chromium.WebBrowserController;
 import com.goxr3plus.xr3player.controllers.djmode.DJMode;
 import com.goxr3plus.xr3player.controllers.dropbox.DropboxDownloadsTableViewer;
 import com.goxr3plus.xr3player.controllers.dropbox.DropboxViewer;
@@ -209,7 +209,7 @@ public class Main extends Application {
 	/**
 	 * The WebBrowser of the Application
 	 */
-//	public static WebBrowserController webBrowser;
+	public static WebBrowserController webBrowser;
 
 	//
 
