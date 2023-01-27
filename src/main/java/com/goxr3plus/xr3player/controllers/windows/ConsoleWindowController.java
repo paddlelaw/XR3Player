@@ -1,6 +1,3 @@
-/**
- * OOUUUUUUUUU PARTYYYYYYYYYYYYYYYYYYYYY!
- */
 package com.goxr3plus.xr3player.controllers.windows;
 
 import java.io.IOException;

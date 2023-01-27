@@ -18,7 +18,7 @@ public class IsPlatformSupported {
 
      @Test
     void isKnownOsName() {
-        final List<String> validOsNames = Arrays.asList("mac os x", "windows");
+        final List<String> validOsNames = Arrays.asList("mac os x", "windows", "windows 11");
 
          final String name = System.getProperty("os.name").toLowerCase(Locale.US);
 
@@ -28,7 +28,7 @@ public class IsPlatformSupported {
 
      @Test
     void isKnownOsArchitecture() {
-        final List<String> validOsArchitectures = Arrays.asList("x86_64", "some other arch");
+        final List<String> validOsArchitectures = Arrays.asList("x86_64", "amd64", "some other arch");
 
          final String arch = System.getProperty("os.arch").toLowerCase(Locale.US);
         System.out.println(arch);
@@ -38,7 +38,7 @@ public class IsPlatformSupported {
 
      @Test
     void isKnownOsVersion() {
-        final List<String> validOsVersions = Arrays.asList("10.14.5", "some other version");
+        final List<String> validOsVersions = Arrays.asList("10.0", "some other version");
 
          final String version = System.getProperty( "os.version" ).toLowerCase( Locale.US );
         System.out.println(version);

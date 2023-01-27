@@ -17,13 +17,15 @@
 	<packaging>jar</packaging>
 
 	<properties>
-		<java.version>17</java.version>
+		<java.version>19</java.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<ikonli.version>12.3.1</ikonli.version>
 		<javafx.version>19</javafx.version>
+		<jxbrowser.version>6.24.3</jxbrowser.version>
 		<junit.jupiter.version>5.9.0</junit.jupiter.version>
+		<main.class.name>com.goxr3plus.xr3player.application.Main</main.class.name>
 		<jave.version>3.3.1</jave.version>
 	</properties>
 
@@ -36,7 +38,17 @@
 			</resource>
 		</resources>
 		<plugins>
-
+			<plugin>
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>0.0.5</version>
+				<configuration>
+					<mainClass>${main.class.name}</mainClass>
+					<options>
+						<option>--add-opens=javafx.fxml/javafx.fxml=ALL-UNNAMED</option>
+					</options>
+				</configuration>
+			</plugin>
 			<!-- Maven Compiler Plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -44,8 +56,8 @@
 				<version>3.8.1</version>
 				<configuration>
 					<useIncrementalCompilation>false</useIncrementalCompilation>
-<!--					<source>${java.version}</source>-->
-<!--					<target>${java.version}</target>-->
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 <!--					<release>17</release>-->
 <!--					<executable>javac17</executable>-->
 					<encoding>UTF-8</encoding>
@@ -61,7 +73,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>com.goxr3plus.xr3player.application.Main</mainClass>
+							<mainClass>${main.class.name}</mainClass>
 							<classpathPrefix>XR3Player_lib/</classpathPrefix>
 						</manifest>
 					</archive>
@@ -135,6 +147,10 @@
 
 	<repositories>
 		<repository>
+			<id>localrepository</id>
+			<url>file://${project.basedir}/libs</url>
+		</repository>
+		<repository>
 			<id>jitpack.io</id>
 			<url>https://jitpack.io</url>
 		</repository>
@@ -170,7 +186,20 @@
 	<!-- Dependencies -->
 
 	<dependencies>
-
+		<dependency>
+			<groupId>com.teamdev.jxbrowser</groupId>
+			<artifactId>jxbrowser</artifactId>
+			<version>${jxbrowser.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/libs/jxbrowser-6.24.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.teamdev.jxbrowser</groupId>
+			<artifactId>jxbrowser-win64</artifactId>
+			<version>${jxbrowser.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/libs/jxbrowser-win64-6.24.3.jar</systemPath>
+		</dependency>
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-controls</artifactId>
@@ -238,13 +267,6 @@
 			<artifactId>image4j</artifactId>
 			<version>0.7.2</version>
 		</dependency>
-
-		<!-- CHROMIUM BROWSER -->
-<!--		<dependency>-->
-<!--			<groupId>com.teamdev.jxbrowser</groupId>-->
-<!--			<artifactId>jxbrowser-win64</artifactId>-->
-<!--			<version>6.23.1</version>-->
-<!--		</dependency>-->
 
 		<!-- JAVAFX GRAPHICS LIBRARIES -->
 		<dependency>
@@ -437,4 +459,34 @@
 
 
 	</dependencies>
+	<profiles>
+		<profile>
+			<id>win</id>
+			<properties>
+				<platform>win</platform>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>linux</id>
+			<properties>
+				<platform>linux</platform>
+			</properties>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>mac</id>
+			<properties>
+				<platform>mac</platform>
+			</properties>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+		</profile>
+
+	</profiles>
 </project>

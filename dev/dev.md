@@ -1,3 +1,9 @@
+## dev
+
+mvn clean package -DskipTests
+`mvn javafx:run -f XR3Player`
+## java17 vm
+
 --add-exports
 javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix
 --add-exports
@@ -15,6 +21,6 @@ javafx.graphics/com.sun.javafx.stage=com.jfoenix
 --add-exports
 javafx.base/com.sun.javafx.event=com.jfoenix
 --add-exports
-javafx.graphics/com.sun.javafx.scene=org.controlsfx.controls,
+javafx.graphics/com.sun.javafx.scene=org.controlsfx.controls
 --add-exports
 javafx.graphics/com.sun.javafx.scene.traversal=org.controlsfx.controls
